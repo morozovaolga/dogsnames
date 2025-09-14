@@ -17,7 +17,7 @@ $(function() {
         if(searchString) {
             $.ajax({
                 type: "POST",
-                url: "search-test.php",
+                url: "search.php",
                 data: data,
                 beforeSend: function(html) { 
                     $("#results").html(''); 

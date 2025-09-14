@@ -1,0 +1,11 @@
+CREATE DATABASE dogsnames
+DEFAULT CHARACTER SET utf8
+DEFAULT COLLATE utf8_general_ci;
+
+USE dogsnames;
+CREATE TABLE names (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(64) NOT NULL
+);
+
+

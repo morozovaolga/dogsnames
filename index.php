@@ -45,10 +45,11 @@ $(function() {
 <br>
  <h1>Добавление клички</h1>
 <p>Добавляйте клички по одной, проверяйте перед отправкой</p>
-    <form action="add.php" method="post" autocomplete="off" enctype="multipart/form-data">
-            <input type="text" maxlength="20" name="addname" placeholder="Не более 20 символов">
-            <button class="addbutton" type="submit">Добавить</button>
+    <form id="addform" autocomplete="off" enctype="multipart/form-data">
+        <input type="text" maxlength="20" name="addname" id="addname" placeholder="Не более 20 символов">
+        <button class="addbutton" type="submit">Добавить</button>
     </form>
+    <div id="add-error" style="color:red;"></div>
     <h2>Какими кличками не называем:</h2>
     <ul>
         <li>В которых есть буквосочетание -марс-</li>
@@ -57,4 +58,26 @@ $(function() {
     </ul>
     </section>
 </body>
+<script type="text/javascript">
+$(function() {
+    $('#addform').submit(function(e) {
+        e.preventDefault();
+        var addname = $('#addname').val();
+        $.ajax({
+            type: 'POST',
+            url: 'add.php',
+            data: { addname: addname },
+            success: function(response) {
+                if (response.indexOf('Ошибка:') !== -1) {
+                    $('#add-error').html(response);
+                } else {
+                    $('#add-error').html('');
+                    $('#addform')[0].reset();
+                    alert('Кличка успешно добавлена!');
+                }
+            }
+        });
+    });
+});
+</script>
 </html>

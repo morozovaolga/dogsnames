@@ -37,12 +37,7 @@ $(function() {
 <body>
     <section>
     <h1>Поиск среди собачьих кличек</h1>
-    <!--
-    <form name="search" method="post" action="search.php">
-    <input type="search" maxlength="20" name="query" placeholder="Поиск">
-    <button type="submit">Найти</button> 
-    </form>
-    -->
+
 <input type="text" name="search" id="searchbox" maxlength="20" placeholder="Поиск">
 <input type="submit" value="Поиск" class="searchbutton" /><br />
 <ul id="results" class="update">

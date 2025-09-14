@@ -41,7 +41,7 @@ $result = "INSERT INTO `names` (`name`) VALUES ('$newname')";
 
 	$result = "INSERT INTO `names` (`name`) VALUES ('" . mysqli_real_escape_string($base, $newname) . "')";
 	if (mysqli_query($base, $result)) {
-		include 'add-template.php';
+		echo "<p style='color:green;'>Новая кличка успешно добавлена!</p>";
 	} else {
 		echo "Error";
 	}
